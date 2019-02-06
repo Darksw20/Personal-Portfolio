@@ -10,6 +10,17 @@ $tooltip-background-color: $sidebar-background-color;
 $typo-title: Upheaval;
 $typo-body: Futura;
 
+//variables circulos
+$borderWidth: 8px;
+$animationTime: 1.5s;
+$border-color-default: black;
+$border-color-fill: white;
+$size: 100px;
+//Create how many steps
+$howManySteps: 10; //this needs to be even. 
+//for fun try using 20 and changine in the HTML the data-percentage to 15 or 85
+
+
 //Extra typos
 @font-face{
 	font-family: "Upheaval";
@@ -29,7 +40,6 @@ $typo-body: Futura;
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
-
 body{
 	background-color: $site-background-color;
 	font-family: $typo-body;
@@ -48,7 +58,6 @@ div .sidebar-header{
 	margin-bottom: 3em;
 	text-align: center;
 }
-
 .titles{
 	color: white;
 	margin-top: 20%;
@@ -68,14 +77,12 @@ div .sidebar-header{
 		border-radius: 4px;
 		color: white;
 		text-align: center;
-		
 	}
 	button:hover{
 		color: black;
 		background-color: white;
 		border-color: black;
 	}
-
 }
 div .subtitles{
 	color: white;
@@ -95,37 +102,57 @@ div .subtitles{
 	}
 }
 
+.dropdown{
+  background-color: #222;
+  color: white;
+  font-family: $typo-title;
+  font-size: 30px;
+  option{
+    color: white;
+    font-family: $typo-title;
+  }
+  option:hover{
+    background-color: #444;
+  }
+}
+.row{
+  margin: 8px -16px;
+}
+.row,
+.row > .column{
+  padding: 8px;
+}
+.column{
+  float: left;
+  width: 33.33%;
+  display: none;
+}
+.row::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.show{
+  display: block;
+}
+
+
 div .micons{
 	text-align: center;
 	margin: 20px;
 }
-
 .sidebar-navigation{
     display: inline-block;
     min-height: 100vh;
     width: 50px;
     background-color: #222;
-	float: left;
+	  float: left;
     ul{
         text-align:center;
         color: white;
-		margin-top: 2em;
+		    margin-top: 2em;
     }
 }
-
-
-
-//styling
-$borderWidth: 7px;
-$animationTime: 1.5s;
-$border-color-default: #eee;
-$border-color-fill: #ffb43e;
-$size: 150px;
-
-//Create how many steps
-$howManySteps: 10; //this needs to be even. 
-//for fun try using 20 and changine in the HTML the data-percentage to 15 or 85
-
 .progress {
   width: $size;
   height: $size;
@@ -189,7 +216,7 @@ $howManySteps: 10; //this needs to be even.
   .progress-value {
     display: flex;
     border-radius: 50%;
-    font-size: 36px;
+    font-size: 20px;
     text-align: center;
     line-height: 20px;
     align-items: center;
