@@ -106,7 +106,7 @@ div .subtitles p {
   background-color: #444;
 }
 
-.row {
+.rows {
   margin: 8px -16px;
 }
 
@@ -118,7 +118,6 @@ div .subtitles p {
 .column {
   float: left;
   width: 33.33%;
-  display: none;
 }
 
 .row::after {
@@ -142,6 +141,7 @@ div .micons {
   width: 50px;
   background-color: #222;
   float: left;
+  position: fixed;
 }
 .sidebar-navigation ul {
   text-align: center;

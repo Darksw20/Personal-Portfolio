@@ -1,4 +1,5 @@
-filterSelection("all")
+/*
+filterSelection("all roles")
 
 function filterSelection(c){
     var x, i;
@@ -43,3 +44,4 @@ for(var i = 0; i < ByteLengthQueuingStrategy.length; i++){
         this.className += " active";
     });
 }
+*/

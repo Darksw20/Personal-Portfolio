@@ -114,8 +114,9 @@ div .subtitles{
   option:hover{
     background-color: #444;
   }
+  
 }
-.row{
+.rows{
   margin: 8px -16px;
 }
 .row,
@@ -125,7 +126,7 @@ div .subtitles{
 .column{
   float: left;
   width: 33.33%;
-  display: none;
+  //display: none;
 }
 .row::after{
   content: "";
@@ -146,7 +147,8 @@ div .micons{
     min-height: 100vh;
     width: 50px;
     background-color: #222;
-	  float: left;
+    float: left;
+    position: fixed;
     ul{
         text-align:center;
         color: white;
