@@ -43,7 +43,13 @@ $howManySteps: 10; //this needs to be even.
 body{
 	background-color: $site-background-color;
 	font-family: $typo-body;
-	color:white;
+  color:white;
+  
+}
+.con{
+  @media screen and (min-width: 300px){
+    margin-left: 40px;
+  }
 }
 
 i{
@@ -82,7 +88,19 @@ div .sidebar-header{
 		color: black;
 		background-color: white;
 		border-color: black;
-	}
+  }
+  img{
+    width: 250px;
+  }
+  @media screen and (min-width: 470px){
+    img{
+      width: 400px;
+    }
+  }
+  @media screen and (min-width: 100px){
+    margin-left: 40px;
+  }
+  
 }
 div .subtitles{
 	color: white;
@@ -99,7 +117,14 @@ div .subtitles{
 	p{
 		font-family: $typo-body;
 		text-align: justify;
-	}
+  }
+  @media screen and (min-width: 100px){
+    margin-left: 40px;
+    img{
+      width: 250px;
+    }
+
+  }
 }
 
 .dropdown{
@@ -126,6 +151,7 @@ div .subtitles{
 .column{
   float: left;
   width: 33.33%;
+  padding: 10px;
   //display: none;
 }
 .row::after{
@@ -140,7 +166,16 @@ div .subtitles{
 
 div .micons{
 	text-align: center;
-	margin: 20px;
+  margin: 20px;
+  
+}
+div .listicons{
+  margin-left: 0px;
+  @media screen and (min-width: 400px){
+    margin-left: 40px;
+    
+
+  }
 }
 .sidebar-navigation{
     display: inline-block;
