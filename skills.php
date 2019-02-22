@@ -11,118 +11,9 @@
 </head>
 <body>
     <header style="float:left">
-            <div class="sidebar-navigation">
-                <nav class="sidebar">
-                <div class="sidebar-header">
-                    <a href="http://localhost/portafolio/">
-                        <i class="material-icons md-36">home</i>
-                    </a>
-                </div>
-                
-                <ul class="list-unstyled components">
-                    <li class="active">
-                        <a href="http://localhost/portafolio/about.html">
-                        <i class="material-icons md-36">person</i>
-                        </a>
-                        <br>
-                        <a href="http://localhost/portafolio/skills.html">
-                        <i class="material-icons md-36">settings</i>  
-                        </a>
-                        <br>
-                        <a href="http://localhost/portafolio/work.html">
-                        <i class="material-icons md-36">work</i>
-                        </a>
-                        <br>
-                        <a href="http://localhost/portafolio/contact.html">
-                        <i class="material-icons md-36">phone</i>
-                        </a>
-                        <br>
-                    </li>
-                    
-                </ul>
-                <ul class="list-unstyled components">
-                    <a href="https://twitter.com/navi_rick">
-                    <svg width="48" height="48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve">
-                        <style type="text/css">
-                        .st0{fill:#1DA1F2;}
-                        .st1{fill:#FFFFFF;}
-                        </style>
-                        <g id="Dark_Blue">
-                        <rect class="st0" width="400" height="400"/>
-                        </g>
-                        <g id="Logo__x2014__FIXED">
-                        <path class="st1" d="M153.6,301.6c94.3,0,145.9-78.2,145.9-145.9c0-2.2,0-4.4-0.1-6.6c10-7.2,18.7-16.3,25.6-26.6
-                            c-9.2,4.1-19.1,6.8-29.5,8.1c10.6-6.3,18.7-16.4,22.6-28.4c-9.9,5.9-20.9,10.1-32.6,12.4c-9.4-10-22.7-16.2-37.4-16.2
-                            c-28.3,0-51.3,23-51.3,51.3c0,4,0.5,7.9,1.3,11.7c-42.6-2.1-80.4-22.6-105.7-53.6c-4.4,7.6-6.9,16.4-6.9,25.8
-                            c0,17.8,9.1,33.5,22.8,42.7c-8.4-0.3-16.3-2.6-23.2-6.4c0,0.2,0,0.4,0,0.7c0,24.8,17.7,45.6,41.1,50.3c-4.3,1.2-8.8,1.8-13.5,1.8
-                            c-3.3,0-6.5-0.3-9.6-0.9c6.5,20.4,25.5,35.2,47.9,35.6c-17.6,13.8-39.7,22-63.7,22c-4.1,0-8.2-0.2-12.2-0.7
-                            C97.7,293.1,124.7,301.6,153.6,301.6"/>
-                        </g>
-                        <g id="Annotations">
-                        </g>
-                    </svg>
-                    </a>
-                    <br>
-                    <a href="https://github.com/Darksw20">
-                    <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.67 64.67">
-                        <defs>
-                        <style>
-                            .cls-1{fill:#111;}
-                            .cls-2{fill:#fff;}
-                        </style>
-                        </defs>
-                        <title>Diseños</title>
-                        <g id="Capa_2" data-name="Capa 2">
-                        <rect class="cls-1" x="-0.34" y="0.28" width="69.72" height="64.79"/>
-                        <path class="cls-2" d="M29.41,47.91c0,1,0,2,0,3,0,.25,0,.51,0,.76a1,1,0,0,1-1.44,1A19.11,19.11,0,0,1,22.6,50a20.33,20.33,0,0,1-7.95-11.4,20.59,20.59,0,0,1,3.92-18.38A20.24,20.24,0,0,1,30.72,13a19.52,19.52,0,0,1,4.86-.33A20.53,20.53,0,0,1,55,34.87,20.58,20.58,0,0,1,41.24,52.64c-.79.28-1.39,0-1.56-.62a1.75,1.75,0,0,1,0-.44q0-2.71,0-5.41a5.26,5.26,0,0,0-1.31-3.85c.8-.15,1.57-.27,2.33-.45A8.78,8.78,0,0,0,45.62,39a8.57,8.57,0,0,0,1.8-4.1,12.12,12.12,0,0,0,0-4.72,7.56,7.56,0,0,0-1.69-3.37.5.5,0,0,1-.11-.55,7.54,7.54,0,0,0-.25-5,.48.48,0,0,0-.36-.21,5.62,5.62,0,0,0-2.77.68c-.8.39-1.56.87-2.35,1.29a.76.76,0,0,1-.49.09,19.69,19.69,0,0,0-7.27-.46c-.84.1-1.66.3-2.49.48a.67.67,0,0,1-.57-.11,12.2,12.2,0,0,0-3.72-1.79,7.72,7.72,0,0,0-1.43-.16.42.42,0,0,0-.31.23,7.5,7.5,0,0,0-.22,5,.47.47,0,0,1-.08.38,8.46,8.46,0,0,0-1.93,6.41,11.81,11.81,0,0,0,1.07,4.41,7.87,7.87,0,0,0,5,4.07c1,.31,2.09.49,3.15.72-.08.09-.2.22-.3.35a4.84,4.84,0,0,0-.86,2c0,.12-.09.29-.18.33a4.6,4.6,0,0,1-4.07,0,4.3,4.3,0,0,1-1.67-1.65,4.4,4.4,0,0,0-2.32-2.05,4.73,4.73,0,0,0-1.38-.16.6.6,0,0,0-.46.28c0,.1.09.33.2.46a1.63,1.63,0,0,0,.44.38,5.85,5.85,0,0,1,2.35,3A4.4,4.4,0,0,0,26,48.06,9,9,0,0,0,29.41,47.91Z"/>
-                        </g>
-                    </svg>
-                    </a>
-                    <br>
-                    <a href="https://www.linkedin.com/in/ricardonavi/">
-                    <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.67 64.67">
-                        <defs>
-                        <style>
-                            .cls-3{fill:#069;}
-                            .cls-4{fill:#fff;}
-                        </style>
-                        </defs>
-                        <title>Diseños</title>
-                        <g id="Capa_2" data-name="Capa 2">
-                        <rect class="cls-3" x="0.23" y="-0.07" width="69.95" height="64.79"/>
-                        <path class="cls-4" d="M38.75,25.76a5.25,5.25,0,0,0,.71-.94A7.37,7.37,0,0,1,44,22.16a10.11,10.11,0,0,1,5.8.58,6.21,6.21,0,0,1,3.4,3.37,12.87,12.87,0,0,1,1,4.21c.18,2.08.15,4.16.15,6.24,0,2.91,0,5.83,0,8.74,0,.38-.1.51-.49.5q-3.13,0-6.25,0c-.36,0-.48-.09-.48-.47q0-6.21,0-12.43a6.76,6.76,0,0,0-.51-2.69,2.82,2.82,0,0,0-1.9-1.75,5.45,5.45,0,0,0-3.15.08,3.59,3.59,0,0,0-2.29,2.72,9.94,9.94,0,0,0-.3,2.61c0,3.8,0,7.59,0,11.39,0,.52,0,.53-.52.53H32.32c-.54,0-.54,0-.54-.52q0-11.11,0-22.21c0-.52,0-.53.53-.53,2,0,3.93,0,5.89,0,.37,0,.49.11.48.48,0,.77,0,1.55,0,2.33A.61.61,0,0,0,38.75,25.76Z"/>
-                        <path class="cls-4" d="M27.16,34.19q0,5.53,0,11.06c0,.55,0,.55-.54.55-2.06,0-4.12,0-6.17,0-.35,0-.46-.09-.46-.45Q20,34.17,20,23c0-.35.1-.46.45-.46,2.07,0,4.14,0,6.21,0,.41,0,.52.11.52.51C27.15,26.76,27.16,30.47,27.16,34.19Z"/>
-                        <path class="cls-4" d="M19.43,15.14A4.19,4.19,0,0,1,23.56,11a4.16,4.16,0,1,1,0,8.33A4.18,4.18,0,0,1,19.43,15.14Z"/>
-                        </g>
-                    </svg>
-                    </a>
-                    <br>
-                    <a href="https://www.google.com">
-                    <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.67 64.67">
-                        <defs>
-                        <style>
-                            .cls-5{fill:#465a65;}
-                            .cls-6{fill:#46c4c3;}
-                            .cls-7{fill:#ffbd78;}
-                            .cls-8{fill:#cc4a64;}
-                            .cls-9{fill:#cff89c;}
-                        </style>
-                        </defs>
-                        <title>Diseños</title>
-                        <g id="Capa_2" data-name="Capa 2">
-                        <rect class="cls-5" x="0.1" y="0.14" width="69.88" height="65.53"/>
-                        <path class="cls-6" d="M37.16,32.86C32.56,38.61,28,44.29,23.49,49.93a1.39,1.39,0,0,1-1.15.37,3.65,3.65,0,0,1-2.66-3.43c-.06-.63,0-1.26,0-1.89q0-12.52,0-25a4.34,4.34,0,0,1,1.06-3.31,6.4,6.4,0,0,1,2-1.11.94.94,0,0,1,.84.27C28.07,21.44,32.58,27.12,37.16,32.86Z"/>
-                        <path class="cls-7" d="M44.29,38.77l-4.73-5.92,4.62-5.8c1.52.93,3.09,1.74,4.5,2.77,2.3,1.67,2.37,4.4.13,6.11C47.42,37,45.84,37.82,44.29,38.77Z"/>
-                        <path class="cls-8" d="M38.36,34.35l4.27,5.36L26.87,49l-.09-.13Z"/>
-                        <path class="cls-9" d="M42.54,26.12l-4.17,5.23L27.26,17.43l.15-.21Z"/>
-                        </g>
-                    </svg>
-                    </a>
-                    <br>
-                </ul>
-                </nav>
-            </div>
+        <?php 
+            require('navbar.php');
+        ?>
     </header>
     <div class="container">
         <div class="row">
@@ -190,7 +81,7 @@
                             </div>                        
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="70">
+                            <div class="progress" data-percentage="60">
                                     <span class="progress-left">
                                         <span class="progress-bar"></span>
                                     </span>
@@ -199,7 +90,7 @@
                                     </span>
                                     <div class="progress-value" style="margin:auto;">
                                         <div>
-                                            70%
+                                            65%
                                             <br>
                                             <span>Ingles</span>
                                         </div>
@@ -216,7 +107,7 @@
                 <div>
                     <ul class="list-inline">
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="70">
+                            <div class="progress" data-percentage="60">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -225,7 +116,7 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        75%<br>
+                                        60%<br>
                                         <span>JAVA</span>
                                     </div>
                                 </div>
@@ -242,23 +133,7 @@
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
                                         80%<br>
-                                        <span>JAVA</span>
-                                    </div>
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="list-inline-item">
-                            <div class="progress" data-percentage="70">
-                                <span class="progress-left">
-                                    <span class="progress-bar"></span>
-                                </span>
-                                <span class="progress-right">
-                                    <span class="progress-bar"></span>
-                                </span>
-                                <div class="progress-value" style="margin:auto;">
-                                    <div>
-                                        70%<br>
-                                        <span>PHP</span>
+                                        <span>C/C++</span>
                                     </div>
                                 </div>
                             </div>  
@@ -273,7 +148,23 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        90%<br>
+                                        92%<br>
+                                        <span>PHP</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="list-inline-item">
+                            <div class="progress" data-percentage="80">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <div class="progress-value" style="margin:auto;">
+                                    <div>
+                                        80%<br>
                                         <span>HTML/CSS</span>
                                     </div>
                                 </div>
