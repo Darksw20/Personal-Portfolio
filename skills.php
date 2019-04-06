@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="styles/img/favicon.png" type="image/png" />
 </head>
 <body>
+<?php require 'claves.php' ?>
     <header style="float:left">
         <?php 
             require('navbar.php');
@@ -65,7 +66,7 @@
                     <h2>Languages</h2>
                     <ul class="list-inline">
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="100">
+                            <div class="progress" data-percentage="<?php echo($s_esp) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -74,14 +75,14 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        100%<br>
+                                    <?php echo($t_esp) ?>%<br>
                                         <span>Español</span>
                                     </div>
                                 </div>
                             </div>                        
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="60">
+                            <div class="progress" data-percentage="<?php echo($s_eng) ?>">
                                     <span class="progress-left">
                                         <span class="progress-bar"></span>
                                     </span>
@@ -90,7 +91,7 @@
                                     </span>
                                     <div class="progress-value" style="margin:auto;">
                                         <div>
-                                            65%
+                                        <?php echo($t_eng) ?>%
                                             <br>
                                             <span>Ingles</span>
                                         </div>
@@ -107,7 +108,7 @@
                 <div>
                     <ul class="list-inline">
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="60">
+                            <div class="progress" data-percentage="<?php echo($s_java) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -116,14 +117,14 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        60%<br>
+                                    <?php echo($t_java) ?>%<br>
                                         <span>JAVA</span>
                                     </div>
                                 </div>
                             </div>  
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="80">
+                            <div class="progress" data-percentage="<?php echo($s_c) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -132,14 +133,14 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        80%<br>
+                                    <?php echo($t_c) ?>%<br>
                                         <span>C/C++</span>
                                     </div>
                                 </div>
                             </div>  
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="90">
+                            <div class="progress" data-percentage="<?php echo($s_php) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -148,14 +149,14 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        92%<br>
+                                    <?php echo($t_php) ?>%<br>
                                         <span>PHP</span>
                                     </div>
                                 </div>
                             </div>  
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="80">
+                            <div class="progress" data-percentage="<?php echo($s_html) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -164,14 +165,14 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        80%<br>
+                                    <?php echo($t_html) ?>%<br>
                                         <span>HTML/CSS</span>
                                     </div>
                                 </div>
                             </div>  
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="90">
+                            <div class="progress" data-percentage="<?php echo($s_sql) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -180,14 +181,14 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        90%<br>
+                                    <?php echo($t_sql) ?>%<br>
                                         <span>SQL</span>
                                     </div>
                                 </div>
                             </div>  
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="60">
+                            <div class="progress" data-percentage="<?php echo($s_assembler) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -196,7 +197,7 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        60%<br>
+                                    <?php echo($t_assembler) ?>%<br>
                                         <span>Assembler</span>
                                     </div>
                                 </div>
@@ -213,7 +214,7 @@
                     </div>
                     <ul class="list-inline">
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="60">
+                            <div class="progress" data-percentage="<?php echo($s_git) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -222,14 +223,14 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        60%<br>
+                                    <?php echo($t_git) ?>%<br>
                                         <span>Git</span>
                                     </div>
                                 </div>
                             </div>  
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="80">
+                            <div class="progress" data-percentage="<?php echo($s_as) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -238,14 +239,14 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        80%<br>
+                                    <?php echo($t_as) ?>%<br>
                                         <span>Android Studio</span>
                                     </div>
                                 </div>
                             </div>  
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="80">
+                            <div class="progress" data-percentage="<?php echo($s_illustrator) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -254,14 +255,14 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        80%<br>
+                                    <?php echo($t_illustrator) ?>%<br>
                                         <span>Illustrator</span>
                                     </div>
                                 </div>
                             </div>  
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="80">
+                            <div class="progress" data-percentage="<?php echo($s_photoshop) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -270,14 +271,14 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        80%<br>
+                                    <?php echo($t_photoshop) ?>%<br>
                                         <span>Photoshop</span>
                                     </div>
                                 </div>
                             </div>  
                         </div>
                         <div class="list-inline-item">
-                            <div class="progress" data-percentage="100">
+                            <div class="progress" data-percentage="<?php echo($s_office) ?>">
                                 <span class="progress-left">
                                     <span class="progress-bar"></span>
                                 </span>
@@ -286,7 +287,7 @@
                                 </span>
                                 <div class="progress-value" style="margin:auto;">
                                     <div>
-                                        100%<br>
+                                    <?php echo($t_office) ?>%<br>
                                         <span>Office</span>
                                     </div>
                                 </div>

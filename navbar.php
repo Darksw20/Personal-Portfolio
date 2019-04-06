@@ -1,26 +1,29 @@
+<?php
+    require 'claves.php';
+?>
 <div class="sidebar-navigation">
     <nav class="sidebar">
       <div class="sidebar-header">
-        <a href="http://localhost/portafolio/">
+        <a href="<?php echo($url); ?>">
             <i class="material-icons md-36">home</i>
         </a>
       </div>
       
       <ul class="list-unstyled components">
         <li class="active">
-            <a href="http://localhost/portafolio/about.php">
+            <a href="<?php echo($url); ?>about.php">
               <i class="material-icons md-36">person</i>
             </a>
             <br>
-            <a href="http://localhost/portafolio/skills.php">
+            <a href="<?php echo($url); ?>skills.php">
               <i class="material-icons md-36">settings</i>  
             </a>
             <br>
-            <a href="http://localhost/portafolio/work.php">
+            <a href="<?php echo($url); ?>work.php">
               <i class="material-icons md-36">work</i>
             </a>
             <br>
-            <a href="http://localhost/portafolio/contact.php">
+            <a href="<?php echo($url); ?>contact.php">
               <i class="material-icons md-36">phone</i>
             </a>
             <br>

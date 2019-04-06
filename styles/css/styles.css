@@ -177,7 +177,6 @@ div .listicons {
   min-height: 100vh;
   width: 50px;
   background-color: #222;
-  float: left;
   position: fixed;
 }
 .sidebar-navigation ul {

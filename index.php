@@ -10,6 +10,9 @@
     <link rel="shortcut icon" href="styles/img/favicon.png" type="image/png" />
   </head>
   <body>
+  <?php
+    require 'claves.php';
+  ?>
   <header class="float-left">
       <?php 
         require('navbar.php');
@@ -21,7 +24,7 @@
           <h1>> Hi, I´m Ricardo Navarro_</h1>
           <h2>Android Developer / Front-End Developer / Tech Enthusiast</h2>
           <br>
-          <button type="titles button" onclick="location.href='http://localhost/portafolio/contact.html'">
+          <button type="titles button" onclick="location.href='<?php echo($url); ?>contact.php'">
             Contact Me
           </button>
         </div> 
