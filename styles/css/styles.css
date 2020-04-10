@@ -32,6 +32,12 @@ body {
   color: white;
 }
 
+@media screen and (min-width: 300px) {
+  .con {
+    margin-left: 40px;
+  }
+}
+
 i {
   color: white;
   margin-bottom: 20px;
@@ -73,6 +79,19 @@ div .sidebar-header {
   background-color: white;
   border-color: black;
 }
+.titles img {
+  width: 250px;
+}
+@media screen and (min-width: 470px) {
+  .titles img {
+    width: 400px;
+  }
+}
+@media screen and (min-width: 100px) {
+  .titles {
+    margin-left: 40px;
+  }
+}
 
 div .subtitles {
   color: white;
@@ -90,6 +109,14 @@ div .subtitles h3 {
 div .subtitles p {
   font-family: Futura;
   text-align: justify;
+}
+@media screen and (min-width: 100px) {
+  div .subtitles {
+    margin-left: 40px;
+  }
+  div .subtitles img {
+    width: 250px;
+  }
 }
 
 .dropdown {
@@ -118,6 +145,7 @@ div .subtitles p {
 .column {
   float: left;
   width: 33.33%;
+  padding: 10px;
 }
 
 .row::after {
@@ -135,12 +163,20 @@ div .micons {
   margin: 20px;
 }
 
+div .listicons {
+  margin-left: 0px;
+}
+@media screen and (min-width: 400px) {
+  div .listicons {
+    margin-left: 40px;
+  }
+}
+
 .sidebar-navigation {
   display: inline-block;
   min-height: 100vh;
   width: 50px;
   background-color: #222;
-  float: left;
   position: fixed;
 }
 .sidebar-navigation ul {
