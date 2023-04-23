@@ -19,19 +19,19 @@ export default function Home() {
             <div className="row listicons">
               <ul className="list-inline">
                 <div className="list-inline-item micons">
-                  {/* <img width="80px" src="styles/img/Diseños-16.png"> */}
+                  <Image width={80} alt="alt" src="/img/Diseños-16.png" />
                   <h6>Teamwork</h6>
                 </div>
                 <div className="list-inline-item micons">
-                  {/* <img width="80px" src="styles/img/Diseños-17.png"> */}
+                  <Image width={80} alt="alt" src="/img/Diseños-17.png" />
                   <h6>Leadership</h6>
                 </div>
                 <div className="list-inline-item micons">
-                  {/* <img width="80px" src="styles/img/Diseños-18.png"> */}
+                  <Image width={80} alt="alt" src="/img/Diseños-18.png" />
                   <h6>Problem Solving</h6>
                 </div>
                 <div className="list-inline-item micons">
-                  {/* <img width="80px" src="styles/img/Diseños-19.png"> */}
+                  <Image width={80} alt="alt" src="/img/Diseños-19.png" />
                   <h6>Critical thinking</h6>
                 </div>
               </ul>

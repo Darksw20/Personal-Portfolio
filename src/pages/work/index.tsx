@@ -30,7 +30,7 @@ export default function Home() {
         <div className="rows subtitles">
           <div className="column web">
             <div className="content">
-              {/* <img src="styles/img/Huaro.JPG" alt="Port1" style="width:100%"> */}
+              <Image src="/img/Huaro.JPG" alt="Port1" width={100} />
               <h4>Huaro Web System</h4>
               <p>
                 Web system for organizers to automate scoring process in sports
@@ -40,56 +40,56 @@ export default function Home() {
           </div>
           <div className="column web">
             <div className="content">
-              {/* <img src="styles/img/HuaroM.png" alt="Port1" style="width:100%"> */}
+              <Image src="/img/HuaroM.png" alt="Port1" />
               <h4>Port1</h4>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
             </div>
           </div>
           <div className="column web">
             <div className="content">
-              {/* <img src="styles/img/port-01.png" alt="Port1" style="width:100%"> */}
+              <Image src="/img/port-01.png" alt="Port1" />
               <h4>Port1</h4>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
             </div>
           </div>
           <div className="column mobile">
             <div className="content">
-              {/* <img src="styles/img/port-02.png" alt="Port1" style="width:100%"> */}
+              <Image src="/img/port-02.png" alt="Port1" />
               <h4>Port1</h4>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
             </div>
           </div>
           <div className="column mobile">
             <div className="content">
-              {/* <img src="styles/img/port-02.png" alt="Port1" style="width:100%"> */}
+              <Image src="/img/port-02.png" alt="Port1" />
               <h4>Port1</h4>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
             </div>
           </div>
           <div className="column mobile">
             <div className="content">
-              {/* <img src="styles/img/port-02.png" alt="Port1" style="width:100%"> */}
+              <Image src="/img/port-02.png" alt="Port1" />
               <h4>Port1</h4>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
             </div>
           </div>
           <div className="column UIUX">
             <div className="content">
-              {/* <img src="styles/img/port-03.png" alt="Port1" style="width:100%"> */}
+              <Image src="/img/port-03.png" alt="Port1" />
               <h4>Port1</h4>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
             </div>
           </div>
           <div className="column UIUX">
             <div className="content">
-              {/* <img src="styles/img/port-03.png" alt="Port1" style="width:100%"> */}
+              <Image src="/img/port-03.png" alt="Port1" />
               <h4>Port1</h4>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
             </div>
           </div>
           <div className="column service">
             <div className="content">
-              {/* <img src="styles/img/port-04.png" alt="Port1" style="width:100%"> */}
+              <Image src="/img/port-04.png" alt="Port1" />
               <h4>Port1</h4>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
             </div>

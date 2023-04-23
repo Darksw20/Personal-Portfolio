@@ -19,7 +19,12 @@ export default function Home() {
             <button>{"Contact Me"}</button>
           </div>
           <div className="titles">
-            {/* <img src="styles/img/cuervo.png" alt="cuervo" /> */}
+            <Image
+              src="/img/cuervo.png"
+              alt="cuervo"
+              width={1000}
+              height={1000}
+            />
           </div>
         </div>
       </div>
