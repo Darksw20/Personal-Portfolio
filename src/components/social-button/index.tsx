@@ -2,11 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import Link from "next/link";
-import styles from "./navbar.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Navbar() {
+const SocialButton = ({ url, img, alt }) => {
+	console.log(text);
 	return (
 		<>
 			<div className="sidebar-navigation">
@@ -55,4 +55,6 @@ export default function Navbar() {
 			</div>
 		</>
 	);
-}
+};
+
+export default SocialButton;
