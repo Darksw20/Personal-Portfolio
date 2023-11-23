@@ -3,10 +3,13 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
+import ProjectList from "./projects";
 
 const inter = Inter({ subsets: ["latin"] });
-const gameFont = localFont({ src: "../../../public/fonts/upheavtt.ttf" });
-const futuraFont = localFont({
+export const gameFont = localFont({
+  src: "../../../public/fonts/upheavtt.ttf",
+});
+export const futuraFont = localFont({
   src: "../../../public/fonts/futura medium bt.ttf",
 });
 
@@ -37,6 +40,10 @@ const PROJECTS = [
       "Within the frame of the Distributed Systems className, worked as a project manager of the team responsible of developing an Ecommerce.",
   },
 ];
+
+const getProjects = (): any => {
+  return PROJECTS;
+};
 
 export default function About() {
   return (
@@ -69,11 +76,15 @@ export default function About() {
           <h3>Relevant Projects.</h3>
         </div>
         <div className="m-4">
-          <p>
-            09 - 18 - Within the frame of the Distributed Systems className,
-            worked as a project manager of the team responsible of developing an
-            Ecommerce.
-          </p>
+          {getProjects().map((project: any) => {
+            console.log(project.date, project.description);
+            return (
+              <ProjectList
+                date={project.date}
+                description={project.description}
+              />
+            );
+          })}
         </div>
       </div>
     </>
