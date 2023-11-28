@@ -26,11 +26,9 @@ interface SkillsState {
 }
 
 const getSkills = async (): Promise<SkillsState> => {
-  console.log(ENDPOINT);
   try {
     const res = await fetch(`${ENDPOINT}/skill`);
     const data = await res.json();
-    console.log(data);
     return data;
   } catch (err) {
     console.error(err);
@@ -79,7 +77,6 @@ export default function Skills() {
                 <h2 className="text-2xl">Courses</h2>
               </div>
               {state?.courses.map((course: any, idx: any) => {
-                console.log(course.name);
                 return (
                   <Courses
                     key={course.name + idx}
