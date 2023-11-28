@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
@@ -13,39 +14,41 @@ export const futuraFont = localFont({
   src: "../../../public/fonts/futura medium bt.ttf",
 });
 
-const PROJECTS = [
-  {
-    date: "08-17",
-    description:
-      "Attended the fourth Campus Party in Guadalajara and worked as Game Designer and programmer in a project to create a game about the experience of beign in the event.",
-  },
-  {
-    date: "09-17",
-    description:
-      "Developed an App to automate the scoring process at an annual private sports championship (Huaro) with an attendance of about 500 people; making results more reliable to the atendees.",
-  },
-  {
-    date: "08-18",
-    description:
-      "Participated on the team that developed 100 laterns made of recyclable materials to be sent to the victims of the 19/09 earthquake in Mexico.",
-  },
-  {
-    date: "08-18",
-    description:
-      "Developed an App to maintain control on the registration process of a national event for the ASMAC (Asociacion de Scouts de Mexico A.C.), with more than 10,000 participants; improving 250 times the speed of such process.",
-  },
-  {
-    date: "09 - 18",
-    description:
-      "Within the frame of the Distributed Systems className, worked as a project manager of the team responsible of developing an Ecommerce.",
-  },
-];
+const ENDPOINT = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT;
 
-const getProjects = (): any => {
-  return PROJECTS;
+interface Project {
+  name: string;
+  src: string;
+  date: string;
+  description: string;
+  categories: string[];
+}
+
+const getProjects = async (): Promise<Project[]> => {
+  try {
+    const response = await fetch(`${ENDPOINT}/project`);
+    const data: Project[] = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Error fetching roles:", error);
+    // Handle the error or return a default value
+    return [];
+  }
 };
 
 export default function About() {
+  const [projects, setProjectState] = useState<Project[] | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const projectData = await getProjects();
+      setProjectState(projectData);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className="container mx-auto basis-11/12 flex items-center">
@@ -76,7 +79,7 @@ export default function About() {
           <h3>Relevant Projects.</h3>
         </div>
         <div className="m-4">
-          {getProjects().map((project: any) => {
+          {projects?.map((project: any) => {
             console.log(project.date, project.description);
             return (
               <ProjectList
