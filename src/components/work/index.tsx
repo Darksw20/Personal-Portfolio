@@ -25,7 +25,7 @@ interface Project {
   name: string;
   src: string;
   description: string;
-  categories: string[];
+  roles: string[];
 }
 
 const getRoles = async (): Promise<Role[]> => {
@@ -95,8 +95,7 @@ export default function Work() {
         <div className="rows subtitles">
           {projects
             ?.filter(
-              (project) =>
-                select === "all" || project.categories.includes(select)
+              (project) => select === "all" || project.roles.includes(select)
             )
             .map((project: any, idx: any) => {
               return (

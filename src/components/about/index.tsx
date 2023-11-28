@@ -21,7 +21,7 @@ interface Project {
   src: string;
   date: string;
   description: string;
-  categories: string[];
+  roles: string[];
 }
 
 const getProjects = async (): Promise<Project[]> => {
