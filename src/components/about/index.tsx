@@ -26,7 +26,7 @@ interface Project {
 
 const getProjects = async (): Promise<Project[]> => {
 	try {
-		const response = await fetch(`${ENDPOINT}/project`);
+		const response = await fetch(`${ENDPOINT}/projects`);
 		const data: Project[] = await response.json();
 
 		return data;
