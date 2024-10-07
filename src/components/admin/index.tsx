@@ -1,5 +1,8 @@
+import { useRouter } from "next/router";
+
 export default function Admin() {
-  return <></>;
+	const router = useRouter();
+	return <p>Post: {router.query.user ?? ""}</p>;
 }
 
 //add skills

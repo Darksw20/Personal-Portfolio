@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react"; // Import useState
+import { useRouter } from "next/router";
+import { useState } from "react";
+
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import localFont from "next/font/local";
@@ -16,6 +18,9 @@ export const futuraFont = localFont({
 const ENDPOINT = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT;
 
 export default function Contact() {
+	const router = useRouter();
+	const user = router.query?.user ?? process.env.NEXT_PUBLIC_DEFAULT_PROFILE;
+
 	// State to manage form data
 	const [name, setName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
@@ -27,6 +32,7 @@ export default function Contact() {
 		event.preventDefault();
 
 		const payload = {
+			profile: user,
 			name,
 			email,
 			title,
