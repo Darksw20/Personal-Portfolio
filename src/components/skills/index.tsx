@@ -86,7 +86,7 @@ export default function Skills() {
 								return (
 									<SoftSkill
 										key={skill.name + idx}
-										src={skill.src}
+										src={skill.image}
 										name={skill.name}
 									/>
 								);

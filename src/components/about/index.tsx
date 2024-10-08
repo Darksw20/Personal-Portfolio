@@ -119,7 +119,7 @@ export default function About() {
 					{projects?.map((project: any, idx) => {
 						return (
 							<ProjectList
-								key={project.name + idx}
+								key={project.title + idx}
 								start_date={project.start_date}
 								end_date={project.end_date}
 								description={project.description}
