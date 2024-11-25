@@ -5,10 +5,10 @@ import Link from "next/link";
 import localFont from "next/font/local";
 
 export const gameFont = localFont({
-	src: "../../../public/fonts/upheavtt.ttf",
+	src: "../../../../public/fonts/upheavtt.ttf",
 });
 export const futuraFont = localFont({
-	src: "../../../public/fonts/futura medium bt.ttf",
+	src: "../../../../public/fonts/futura medium bt.ttf",
 });
 
 const ENDPOINT = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT;
