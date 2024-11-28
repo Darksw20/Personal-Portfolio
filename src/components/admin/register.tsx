@@ -67,7 +67,7 @@ export default function Register() {
 								type="text"
 								className="form-control"
 								placeholder="Email"
-								value={username}
+								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 							/>
 						</div>
