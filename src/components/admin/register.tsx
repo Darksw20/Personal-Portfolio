@@ -52,7 +52,8 @@ export default function Register() {
 
 			if (response.ok) {
 				console.log("Logged");
-				// Optionally clear the form or show a success message
+				// Send to user dashboard
+				router.push(`/admin/${username}/dashboard`);
 			} else {
 				console.error("Failed to Login");
 			}
