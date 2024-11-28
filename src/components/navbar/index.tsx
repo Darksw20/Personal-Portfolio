@@ -2,7 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Home, Person, Settings, Work, Phone } from "@mui/icons-material";
+import {
+	Home,
+	Person,
+	Settings,
+	Work,
+	Phone,
+	LoginIcon,
+} from "@mui/icons-material";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
@@ -70,6 +77,9 @@ export default function Navbar() {
 			<div className="flex flex-col place-items-center">
 				<Link href={username ? `/${username}/home` : "/"}>
 					<Home fontSize="large" />
+				</Link>
+				<Link href={"/login"}>
+					<LoginIcon fontSize="large" />
 				</Link>
 			</div>
 
