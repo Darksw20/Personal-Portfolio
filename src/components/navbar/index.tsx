@@ -8,7 +8,7 @@ import {
 	Settings,
 	Work,
 	Phone,
-	LoginIcon,
+	Login,
 } from "@mui/icons-material";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -79,7 +79,7 @@ export default function Navbar() {
 					<Home fontSize="large" />
 				</Link>
 				<Link href={"/login"}>
-					<LoginIcon fontSize="large" />
+					<Login fontSize="large" />
 				</Link>
 			</div>
 
