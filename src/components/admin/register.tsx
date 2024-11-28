@@ -15,6 +15,7 @@ const ENDPOINT = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT;
 
 export default function Register() {
 	const router = useRouter();
+	const [email, setEmail] = useState<string>("");
 	const [username, setUsername] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
@@ -23,6 +24,7 @@ export default function Register() {
 		event.preventDefault();
 
 		const payload = {
+			email,
 			username,
 			password,
 		};
@@ -30,9 +32,6 @@ export default function Register() {
 		try {
 			const response = await fetch(`${ENDPOINT}/login`, {
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
 				body: JSON.stringify(payload),
 			});
 
@@ -55,6 +54,15 @@ export default function Register() {
 			<div className="flex justify-center bg-neutral-800 m-8 rounded-lg flex flex-col">
 				<div className="m-8">
 					<form className="flex flex-col" onSubmit={handleSubmit}>
+						<div className="form-group m-8 self-center">
+							<input
+								type="text"
+								className="form-control"
+								placeholder="Email"
+								value={username}
+								onChange={(e) => setEmail(e.target.value)}
+							/>
+						</div>
 						<div className="form-group m-8 self-center">
 							<input
 								type="text"
