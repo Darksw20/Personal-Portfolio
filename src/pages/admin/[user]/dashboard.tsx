@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Layout() {
 	return (
 		<div className="flex flex-row">
+			<Navbar />
 			<Dashboard />
 		</div>
 	);

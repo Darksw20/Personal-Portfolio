@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import localFont from "next/font/local";
+import { Person } from "@mui/icons-material";
 
 export const gameFont = localFont({
 	src: "../../../../public/fonts/upheavtt.ttf",
@@ -13,39 +14,59 @@ export const futuraFont = localFont({
 
 const ENDPOINT = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT;
 
+interface User {
+	id: number;
+	email: string;
+	username: string;
+	summary: string;
+	motivation: string;
+	github: string;
+	linkedin: string;
+}
+
+const getUserInfo = async (user: string): Promise<User | null> => {
+	try {
+		const response = await fetch(`${ENDPOINT}/users?user=${user}`);
+		const data: User[] = await response.json();
+		return data[0] ?? null;
+	} catch (error) {
+		console.error("Error fetching roles:", error);
+		// Handle the error or return a default value
+		return null;
+	}
+};
+
+const useUserData = (user: string | undefined) => {
+	const [userInfo, setUserInfo] = useState<User | null>(null);
+
+	const fetchData = useCallback(async (user: string) => {
+		try {
+			const [userInfoData] = await Promise.all([getUserInfo(user)]);
+			setUserInfo(userInfoData);
+		} catch (error) {
+			console.error("Error fetching data:", error);
+		}
+	}, []);
+
+	return { userInfo, fetchData };
+};
+
 export default function Dashboard() {
 	const router = useRouter();
-	const [username, setUsername] = useState<string>("");
-	const [password, setPassword] = useState<string>("");
+	const user = router.query?.user as string | undefined;
+	console.log("nvar user", user);
+	const [username, setUsername] = useState(user);
 
-	// Handle form submission
-	const handleSubmit = async (event: React.FormEvent) => {
-		event.preventDefault();
+	const { userInfo, fetchData } = useUserData(user);
 
-		const payload = {
-			username,
-			password,
-		};
-
-		try {
-			const response = await fetch(`${ENDPOINT}/login`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(payload),
-			});
-
-			if (response.ok) {
-				console.log("Logged");
-				// Optionally clear the form or show a success message
-			} else {
-				console.error("Failed to Login");
-			}
-		} catch (error) {
-			console.error("An error occurred while Login", error);
+	useEffect(() => {
+		if (router.isReady) {
+			const profile =
+				user || (process.env.NEXT_PUBLIC_DEFAULT_PROFILE as string);
+			setUsername(profile);
+			fetchData(profile);
 		}
-	};
+	}, [router.isReady, user, fetchData]);
 
 	return (
 		<div className="flex flex-col m-10">
@@ -54,57 +75,28 @@ export default function Dashboard() {
 			</div>
 			<div className="flex justify-center bg-neutral-800 m-8 rounded-lg flex flex-col">
 				<div className="m-8">
-					<form className="flex flex-col" onSubmit={handleSubmit}>
-						<div className="form-group m-8 self-center">
-							<input
-								type="text"
-								className="form-control"
-								placeholder="Username"
-								value={username}
-								onChange={(e) => setUsername(e.target.value)}
-							/>
-						</div>
-						<div className="form-group m-8 self-center">
-							<input
-								type="password"
-								className="form-control"
-								placeholder="Password"
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
-							/>
-						</div>
-						<div className="titles self-center">
-							<button
-								type="submit"
-								style={{
-									border: "2px solid white",
-									borderRadius: "6px",
-									padding: "10px",
-									fontSize: "larger",
-								}}
-							>
-								{"Send"}
-							</button>
-						</div>
-					</form>
+					<Link
+						href={
+							username
+								? `/admin/${username}/profile`
+								: `/admin/${username}/dashboard`
+						}
+					>
+						<Person className="m-2" fontSize="large" />
+						<p>Profile</p>
+					</Link>
+					<Link
+						href={
+							username
+								? `/admin/${username}/messages`
+								: `/admin/${username}/dashboard`
+						}
+					>
+						<Person className="m-2" fontSize="large" />
+						<p>List of Emails</p>
+					</Link>
 				</div>
-				<div className="m-10 flex flex-col">
-					<p>If you dont have an account register first...</p>
-					<div className="titles self-center">
-						<Link href="/admin/register">
-							<button
-								style={{
-									border: "2px solid white",
-									borderRadius: "6px",
-									padding: "10px",
-									fontSize: "larger",
-								}}
-							>
-								{"Register"}
-							</button>
-						</Link>
-					</div>
-				</div>
+				<div className="m-10 flex flex-col"></div>
 			</div>
 		</div>
 	);
