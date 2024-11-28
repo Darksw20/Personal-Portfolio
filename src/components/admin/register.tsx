@@ -18,6 +18,7 @@ export default function Register() {
 	const [email, setEmail] = useState<string>("");
 	const [username, setUsername] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
+	const [repassword, setRePassword] = useState<string>("");
 
 	// Handle form submission
 	const handleSubmit = async (event: React.FormEvent) => {
@@ -28,10 +29,17 @@ export default function Register() {
 			username,
 			password,
 		};
+		if (password !== repassword) {
+			console.error("Passwords don't match");
+			return;
+		}
 
 		try {
-			const response = await fetch(`${ENDPOINT}/login`, {
+			const response = await fetch(`${ENDPOINT}/register`, {
 				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
 				body: JSON.stringify(payload),
 			});
 
@@ -86,8 +94,8 @@ export default function Register() {
 								type="password"
 								className="form-control"
 								placeholder="Retype Password"
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
+								value={repassword}
+								onChange={(e) => setRePassword(e.target.value)}
 							/>
 						</div>
 						<div className="titles self-center">
