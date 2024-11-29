@@ -8,9 +8,10 @@ import Profile from "@/components/admin/user/profile";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Layout() {
-	return (
-		<div className="flex flex-row">
-			<Profile />
-		</div>
-	);
+  return (
+    <div className="flex flex-row">
+      <Navbar />
+      <Profile />
+    </div>
+  );
 }

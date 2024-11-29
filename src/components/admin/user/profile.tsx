@@ -1,126 +1,148 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import Link from "next/link";
 
 import localFont from "next/font/local";
+import { Didact_Gothic } from "next/font/google";
 
 export const gameFont = localFont({
-	src: "../../../../public/fonts/upheavtt.ttf",
+  src: "../../../../public/fonts/upheavtt.ttf",
 });
 export const futuraFont = localFont({
-	src: "../../../../public/fonts/futura medium bt.ttf",
+  src: "../../../../public/fonts/futura medium bt.ttf",
 });
 
 const ENDPOINT = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT;
 
 export default function Profile() {
-	const router = useRouter();
-	const [username, setUsername] = useState<string>("");
-	const [password, setPassword] = useState<string>("");
+  const router = useRouter();
+  const [dataIsLoading, setDataIsLoading] = useState(true);
+  const [userData, setUserData] = useState<any>(null);
+  const [skillsList, setSkillsList] = useState<any>(null);
+  const [newSkillName, setNewSkillName] = useState("");
+  const [newSkillPercentage, setNewSkillPercentage] = useState("");
+  const [newSkillType, setNewSkillType] = useState("");
 
-	// Handle form submission
-	const handleSubmit = async (event: React.FormEvent) => {
-		event.preventDefault();
+  const user = router.query?.user as string | undefined;
 
-		const payload = {
-			username,
-			password,
-		};
+  useEffect(() => {
+    fetch(`${ENDPOINT}/skills?user=${user}`)
+      .then((response) => response.json())
+      .then((res) => {
+        setDataIsLoading(false);
+        setUserData(res);
+        console.log(res);
+      });
+  }, [user]);
 
-		try {
-			const response = await fetch(`${ENDPOINT}/login`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(payload),
-			});
+  useEffect(() => {
+    fetch(`${ENDPOINT}/skills`)
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res);
+        setSkillsList(res);
+      });
+  }, []);
 
-			if (response.ok) {
-				console.log("Logged");
-				// Optionally clear the form or show a success message
-			} else {
-				console.error("Failed to Login");
-			}
-		} catch (error) {
-			console.error("An error occurred while Login", error);
-		}
-	};
+  function handleSkillNameChange(e: any) {
+    const target = e.target;
+    setNewSkillName(target.value);
+  }
 
-	return (
-		<div className="flex flex-col m-10">
-			<div className={gameFont.className}>
-				<h1 className="text-6xl">{"> Profile"}</h1>
-			</div>
-			<div className="flex justify-center bg-neutral-800 m-8 rounded-lg flex flex-col">
-				<div className="m-8">
-					<form className="flex flex-col" onSubmit={handleSubmit}>
-						<div className="form-group m-8 self-center">
-							<input
-								type="text"
-								className="form-control"
-								placeholder="Username"
-								value={username}
-								onChange={(e) => setUsername(e.target.value)}
-							/>
-						</div>
-						<div className="form-group m-8 self-center">
-							<input
-								type="password"
-								className="form-control"
-								placeholder="Password"
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
-							/>
-						</div>
-						<div className="titles self-center">
-							<button
-								type="submit"
-								style={{
-									border: "2px solid white",
-									borderRadius: "6px",
-									padding: "10px",
-									fontSize: "larger",
-								}}
-							>
-								{"Send"}
-							</button>
-						</div>
-					</form>
-				</div>
-				<div className="m-10 flex flex-col">
-					<p>If you dont have an account register first...</p>
-					<div className="titles self-center">
-						<Link href="/admin/register">
-							<button
-								style={{
-									border: "2px solid white",
-									borderRadius: "6px",
-									padding: "10px",
-									fontSize: "larger",
-								}}
-							>
-								{"Register"}
-							</button>
-						</Link>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+  function handleSkillPercentageChange(e: any) {
+    setNewSkillPercentage(e.target.value);
+  }
 
-	// <p>Login: {router.query.user ?? ""}</p>;
+  function handleSkillTypeChange(e: any) {
+    setNewSkillType(e.target.value);
+  }
+
+  function handleSubmitSkill() {
+    const body = {
+      name: newSkillName,
+      percent: newSkillPercentage,
+      type: newSkillType,
+    };
+    fetch(`${ENDPOINT}/skills`, {
+      method: "POST",
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSkillsList([...skillsList, data]);
+        setNewSkillName("");
+        setNewSkillPercentage("");
+        setNewSkillType("");
+        console.log(data);
+      });
+  }
+
+  return (
+    <div className="flex flex-col m-10">
+      <div className={gameFont.className}>
+        <h1 className="text-6xl">{"> Profile"}</h1>
+      </div>
+      <div className="flex justify-center bg-neutral-800 m-8 rounded-lg flex flex-col">
+        {dataIsLoading && <p>Loading...</p>}
+        {userData !== null && userData.softSkill.length && (
+          <div className="p-2">
+            <ul>
+              {skillsList &&
+                skillsList.map((skill: any) => (
+                  <li key={skill.name}>{skill.name}</li>
+                ))}
+            </ul>
+          </div>
+        )}
+        <div className="border-t-2 p-2">
+          <input
+            type="text"
+            name="skillName"
+            className="w-full border rounded mt-2 p-2"
+            value={newSkillName}
+            placeholder="Skill Name"
+            onChange={handleSkillNameChange}
+          />
+          <input
+            type="text"
+            name="percentage"
+            className="w-full border rounded mt-2 p-2"
+            value={newSkillPercentage}
+            placeholder="Percentage"
+            onChange={handleSkillPercentageChange}
+          />
+          <select
+            className="w-full border rounded mt-2 p-2"
+            onChange={handleSkillTypeChange}
+          >
+            <option value="SOFT_SKILL">Soft Skill</option>
+            <option value="COURSE">Courses</option>
+            <option value="LANGUAGE">Language</option>
+            <option value="PROGRAMMING_LANG">Programming Language</option>
+          </select>
+          <button
+            className="w-full border rounded my-2 p-2"
+            onClick={handleSubmitSkill}
+          >
+            Add skill
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
+
+// <p>Login: {router.query.user ?? ""}</p>;Z
 
 //add skills
 //delete skills
 //modify skills
 //see skills
 
-//add projects
-//delete projects
-//modify projects
-//see projects
+//add achievements
+//delete achievements
+//modify achievements
+//see achievements
 
 //add roles
 //delete roles
