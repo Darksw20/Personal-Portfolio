@@ -122,9 +122,9 @@ export default function Register() {
 					</form>
 				</div>
 				<div className="m-10 flex flex-col">
-					<p>If you dont have an account register first...</p>
+					<p>If you already have an account please login...</p>
 					<div className="titles self-center">
-						<Link href="/register">
+						<Link href="/login">
 							<button
 								style={{
 									border: "2px solid white",
@@ -133,7 +133,7 @@ export default function Register() {
 									fontSize: "larger",
 								}}
 							>
-								{"Register"}
+								{"Login"}
 							</button>
 						</Link>
 					</div>
