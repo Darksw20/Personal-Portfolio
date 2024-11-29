@@ -30,16 +30,10 @@ export default function Login() {
 		try {
 			console.log({
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json", // Add this header
-				},
 				body: JSON.stringify(payload),
 			});
 			const response = await fetch(`${ENDPOINT}/login`, {
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json", // Add this header
-				},
 				body: JSON.stringify(payload),
 			});
 

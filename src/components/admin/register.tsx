@@ -37,16 +37,10 @@ export default function Register() {
 		try {
 			console.log({
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
 				body: JSON.stringify(payload),
 			});
 			const response = await fetch(`${ENDPOINT}/register`, {
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
 				body: JSON.stringify(payload),
 			});
 
