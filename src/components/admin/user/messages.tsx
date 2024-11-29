@@ -17,7 +17,7 @@ export default function Messages() {
   const router = useRouter();
   const user = router.query?.user as string | undefined;
   const [dataIsLoading, setDataIsLoading] = useState(true);
-  const [userMessages, setUserMessages] = useState(null);
+  const [userMessages, setUserMessages] = useState<any>(null);
 
   useEffect(() => {
     fetch(`${ENDPOINT}/contacts?user=humberto`)
@@ -36,7 +36,7 @@ export default function Messages() {
       <div className="flex justify-center bg-neutral-800 m-8 rounded-lg flex flex-col">
         {userMessages && (
           <ul className="p-4">
-            {userMessages.map((msg) => (
+            {userMessages.map((msg: any) => (
               <li className="mb-4" key={msg.name}>
                 <p>
                   <strong>Name:</strong> {msg.name}

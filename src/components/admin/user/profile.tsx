@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import Link from "next/link";
 
 import localFont from "next/font/local";
@@ -17,8 +17,8 @@ const ENDPOINT = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT;
 export default function Profile() {
   const router = useRouter();
   const [dataIsLoading, setDataIsLoading] = useState(true);
-  const [userData, setUserData] = useState(null);
-  const [skillsList, setSkillsList] = useState(null);
+  const [userData, setUserData] = useState<any>(null);
+  const [skillsList, setSkillsList] = useState<any>(null);
   const [newSkillName, setNewSkillName] = useState("");
   const [newSkillPercentage, setNewSkillPercentage] = useState("");
   const [newSkillType, setNewSkillType] = useState("");
@@ -44,15 +44,16 @@ export default function Profile() {
       });
   }, []);
 
-  function handleSkillNameChange(e) {
-    setNewSkillName(e.target.value);
+  function handleSkillNameChange(e: any) {
+    const target = e.target;
+    setNewSkillName(target.value);
   }
 
-  function handleSkillPercentageChange(e) {
+  function handleSkillPercentageChange(e: any) {
     setNewSkillPercentage(e.target.value);
   }
 
-  function handleSkillTypeChange(e) {
+  function handleSkillTypeChange(e: any) {
     setNewSkillType(e.target.value);
   }
 
@@ -87,7 +88,7 @@ export default function Profile() {
           <div className="p-2">
             <ul>
               {skillsList &&
-                skillsList.map((skill) => (
+                skillsList.map((skill: any) => (
                   <li key={skill.name}>{skill.name}</li>
                 ))}
             </ul>
