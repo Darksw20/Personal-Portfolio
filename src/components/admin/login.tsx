@@ -36,12 +36,12 @@ export default function Login() {
 				body: JSON.stringify(payload),
 			});
 
-			if (response.ok) {
+			if (response.ok && response.status === 200) {
 				console.log("Logged");
 				// Redirect to user dashboard
 				router.push(`/admin/${username}/dashboard`);
 			} else {
-				console.error("Failed to Login");
+				alert("Failed to Login");
 			}
 		} catch (error) {
 			console.error("An error occurred while Login", error);
