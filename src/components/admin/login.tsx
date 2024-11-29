@@ -30,12 +30,15 @@ export default function Login() {
 		try {
 			const response = await fetch(`${ENDPOINT}/login`, {
 				method: "POST",
+				headers: {
+					"Content-Type": "application/json", // Add this header
+				},
 				body: JSON.stringify(payload),
 			});
 
 			if (response.ok) {
 				console.log("Logged");
-				// Send to user dashboard
+				// Redirect to user dashboard
 				router.push(`/admin/${username}/dashboard`);
 			} else {
 				console.error("Failed to Login");
