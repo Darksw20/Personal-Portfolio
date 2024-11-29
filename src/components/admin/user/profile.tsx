@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import localFont from "next/font/local";
+import { Didact_Gothic } from "next/font/google";
 
 export const gameFont = localFont({
   src: "../../../../public/fonts/upheavtt.ttf",
@@ -17,60 +18,61 @@ export default function Profile() {
   const router = useRouter();
   const [dataIsLoading, setDataIsLoading] = useState(true);
   const [userData, setUserData] = useState(null);
+  const [skillsList, setSkillsList] = useState(null);
+  const [newSkillName, setNewSkillName] = useState("");
+  const [newSkillPercentage, setNewSkillPercentage] = useState("");
+  const [newSkillType, setNewSkillType] = useState("");
 
   const user = router.query?.user as string | undefined;
 
   useEffect(() => {
-    fetch(`${ENDPOINT}/skills?user=${user}`)
+    fetch(`${ENDPOINT}/skills?user=humberto`)
       .then((response) => response.json())
       .then((res) => {
-        console.log(res);
         setDataIsLoading(false);
         setUserData(res);
       });
   }, [user]);
 
-  function EditField({ name }) {
-    const [isEditing, setIsEditing] = useState(false);
-    const [skillName, setSkillname] = useState(name);
-    function handleClick() {
-      setIsEditing(true);
-    }
+  useEffect(() => {
+    fetch(`${ENDPOINT}/skills`)
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res);
+        setSkillsList(res);
+      });
+  }, []);
+
+  function handleSkillNameChange(e) {
+    setNewSkillName(e.target.value);
+  }
+
+  function handleSkillPercentageChange(e) {
+    setNewSkillPercentage(e.target.value);
+  }
+
+  function handleSkillTypeChange(e) {
+    setNewSkillType(e.target.value);
+  }
+
+  function handleSubmitSkill() {
     const body = {
-      user,
-      id: "",
-      name: "",
+      name: newSkillName,
+      percent: newSkillPercentage,
+      type: newSkillType,
     };
-    function handleKeyPress(e) {
-      if (e.key === "Enter") {
-        console.log(e.key);
-        fetch(`${ENDPOINT}/skills`, {
-          method: "PUT",
-          body: JSON.stringify(body),
-        })
-          .then((response) => response.json)
-          .then((data) => console.log(data));
-        setIsEditing(false);
-      }
-    }
-    function handleChange(e, index) {
-      console.log(e.target.value);
-      setSkillname(e.target.value);
-    }
-    return (
-      <>
-        {isEditing ? (
-          <input
-            autoFocus
-            value={skillName}
-            onKeyDown={handleKeyPress}
-            onChange={handleChange}
-          />
-        ) : (
-          <p onClick={handleClick}>{name}</p>
-        )}
-      </>
-    );
+    fetch(`${ENDPOINT}/skills`, {
+      method: "POST",
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSkillsList([...skillsList, data]);
+        setNewSkillName("");
+        setNewSkillPercentage("");
+        setNewSkillType("");
+        console.log(data);
+      });
   }
 
   return (
@@ -82,48 +84,50 @@ export default function Profile() {
         {dataIsLoading && <p>Loading...</p>}
         {userData !== null && userData.softSkill.length && (
           <div className="p-2">
-            <h2>
-              <strong>Programming Languages</strong>
-            </h2>
-            <ul className="p-2">
-              {userData.programmingLanguages.map((skill) => (
-                <li>
-                  <EditField name={skill.name} />
-                </li>
-              ))}
-            </ul>
-            <h2>
-              <strong>Soft Skills</strong>
-            </h2>
-            <ul className="p-2">
-              {userData.softSkill.map((skill) => (
-                <EditField name={skill.name} />
-              ))}
-            </ul>
-            <h2>
-              <strong>Languages</strong>
-            </h2>
-            <ul className="p-2">
-              {userData.languages.map((skill) => (
-                <EditField name={skill.name} />
-              ))}
-            </ul>
-            <h2>
-              <strong>Courses</strong>
-            </h2>
-            <ul className="p-2">
-              {userData.courses.map((skill) => (
-                <EditField name={skill.name} />
-              ))}
+            <ul>
+              {skillsList && skillsList.map((skill) => <li>{skill.name}</li>)}
             </ul>
           </div>
         )}
+        <div className="border-t-2 p-2">
+          <input
+            type="text"
+            name="skillName"
+            className="w-full border rounded mt-2 p-2"
+            value={newSkillName}
+            placeholder="Skill Name"
+            onChange={handleSkillNameChange}
+          />
+          <input
+            type="text"
+            name="percentage"
+            className="w-full border rounded mt-2 p-2"
+            value={newSkillPercentage}
+            placeholder="Percentage"
+            onChange={handleSkillPercentageChange}
+          />
+          <select
+            className="w-full border rounded mt-2 p-2"
+            onChange={handleSkillTypeChange}
+          >
+            <option value="SOFT_SKILL">Soft Skill</option>
+            <option value="COURSE">Courses</option>
+            <option value="LANGUAGE">Language</option>
+            <option value="PROGRAMMING_LANG">Programming Language</option>
+          </select>
+          <button
+            className="w-full border rounded my-2 p-2"
+            onClick={handleSubmitSkill}
+          >
+            Add skill
+          </button>
+        </div>
       </div>
     </div>
   );
-
-  // <p>Login: {router.query.user ?? ""}</p>;
 }
+
+// <p>Login: {router.query.user ?? ""}</p>;Z
 
 //add skills
 //delete skills
