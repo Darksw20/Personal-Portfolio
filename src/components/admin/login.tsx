@@ -38,8 +38,10 @@ export default function Login() {
 			});
 
 			if (response.ok && response.status === 200) {
-				console.log("Logged");
+				console.log("Logged", response);
 				// Redirect to user dashboard
+				const data = await response.json();
+				localStorage.setItem("userId", data.userId);
 				router.push(`/admin/${username}/dashboard`);
 			} else {
 				alert("Failed to Login");

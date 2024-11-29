@@ -44,9 +44,11 @@ export default function Register() {
 				body: JSON.stringify(payload),
 			});
 
-			if (response.ok) {
-				console.log("Logged");
+			if (response.ok && response.status === 200) {
+				console.log("Logged", response);
 				// Send to user dashboard
+				const data = await response.json();
+				localStorage.setItem("userId", data.userId);
 				router.push(`/admin/${username}/dashboard`);
 			} else {
 				console.error("Failed to Login");
