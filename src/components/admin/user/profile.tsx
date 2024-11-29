@@ -26,11 +26,12 @@ export default function Profile() {
   const user = router.query?.user as string | undefined;
 
   useEffect(() => {
-    fetch(`${ENDPOINT}/skills?user=humberto`)
+    fetch(`${ENDPOINT}/skills?user=${user}`)
       .then((response) => response.json())
       .then((res) => {
         setDataIsLoading(false);
         setUserData(res);
+        console.log(res);
       });
   }, [user]);
 
