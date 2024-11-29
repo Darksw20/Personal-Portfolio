@@ -9,6 +9,7 @@ import {
 	Work,
 	Phone,
 	Login,
+	Logout,
 } from "@mui/icons-material";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -72,15 +73,23 @@ export default function Navbar() {
 		}
 	}, [router.isReady, user, fetchData]);
 
+	const userId = localStorage.getItem("userId");
+
 	return (
 		<aside className="container py-6 flex flex-col sidebar bg-neutral-900 grid-rows-3 justify-between w-16 h-screen sticky top-0 ">
 			<div className="flex flex-col place-items-center">
 				<Link href={username ? `/${username}/home` : "/"}>
 					<Home fontSize="large" />
 				</Link>
-				<Link href={"/login"}>
-					<Login fontSize="large" />
-				</Link>
+				{userId ? (
+					<Link href={"/login"}>
+						<Login fontSize="large" />
+					</Link>
+				) : (
+					<Link href={"/"}>
+						<Logout fontSize="large" />
+					</Link>
+				)}
 			</div>
 
 			<ul className="flex flex-col place-items-center">
