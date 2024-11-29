@@ -15,30 +15,41 @@ const ENDPOINT = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT;
 
 export default function Register() {
 	const router = useRouter();
+	const [email, setEmail] = useState<string>("");
 	const [username, setUsername] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
+	const [repassword, setRePassword] = useState<string>("");
 
 	// Handle form submission
 	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
 
 		const payload = {
+			email,
 			username,
 			password,
 		};
+		if (password !== repassword) {
+			console.error("Passwords don't match");
+			return;
+		}
 
 		try {
-			const response = await fetch(`${ENDPOINT}/login`, {
+			console.log({
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
+				body: JSON.stringify(payload),
+			});
+			const response = await fetch(`${ENDPOINT}/register`, {
+				method: "POST",
 				body: JSON.stringify(payload),
 			});
 
-			if (response.ok) {
-				console.log("Logged");
-				// Optionally clear the form or show a success message
+			if (response.ok && response.status === 200) {
+				console.log("Logged", response);
+				// Send to user dashboard
+				const data = await response.json();
+				localStorage.setItem("userId", data.userId);
+				router.push(`/admin/${username}/dashboard`);
 			} else {
 				console.error("Failed to Login");
 			}
@@ -55,6 +66,15 @@ export default function Register() {
 			<div className="flex justify-center bg-neutral-800 m-8 rounded-lg flex flex-col">
 				<div className="m-8">
 					<form className="flex flex-col" onSubmit={handleSubmit}>
+						<div className="form-group m-8 self-center">
+							<input
+								type="text"
+								className="form-control"
+								placeholder="Email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+							/>
+						</div>
 						<div className="form-group m-8 self-center">
 							<input
 								type="text"
@@ -78,8 +98,8 @@ export default function Register() {
 								type="password"
 								className="form-control"
 								placeholder="Retype Password"
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
+								value={repassword}
+								onChange={(e) => setRePassword(e.target.value)}
 							/>
 						</div>
 						<div className="titles self-center">
@@ -98,9 +118,9 @@ export default function Register() {
 					</form>
 				</div>
 				<div className="m-10 flex flex-col">
-					<p>If you dont have an account register first...</p>
+					<p>If you already have an account please login...</p>
 					<div className="titles self-center">
-						<Link href="/register">
+						<Link href="/login">
 							<button
 								style={{
 									border: "2px solid white",
@@ -109,7 +129,7 @@ export default function Register() {
 									fontSize: "larger",
 								}}
 							>
-								{"Register"}
+								{"Login"}
 							</button>
 						</Link>
 					</div>

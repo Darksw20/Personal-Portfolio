@@ -2,7 +2,15 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Home, Person, Settings, Work, Phone } from "@mui/icons-material";
+import {
+	Home,
+	Person,
+	Settings,
+	Work,
+	Phone,
+	Login,
+	Logout,
+} from "@mui/icons-material";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
@@ -53,6 +61,7 @@ export default function Navbar() {
 	const user = router.query?.user as string | undefined;
 	console.log("nvar user", user);
 	const [username, setUsername] = useState(user);
+	const [userId, setUserId] = useState<number | null>(null);
 
 	const { userInfo, fetchData } = useUserData(user);
 
@@ -62,6 +71,7 @@ export default function Navbar() {
 				user || (process.env.NEXT_PUBLIC_DEFAULT_PROFILE as string);
 			setUsername(profile);
 			fetchData(profile);
+			setUserId(parseInt(localStorage.getItem("userId") || "0"));
 		}
 	}, [router.isReady, user, fetchData]);
 
@@ -71,6 +81,15 @@ export default function Navbar() {
 				<Link href={username ? `/${username}/home` : "/"}>
 					<Home fontSize="large" />
 				</Link>
+				{userId ? (
+					<Link href={"/login"}>
+						<Login fontSize="large" />
+					</Link>
+				) : (
+					<Link href={"/"}>
+						<Logout fontSize="large" />
+					</Link>
+				)}
 			</div>
 
 			<ul className="flex flex-col place-items-center">

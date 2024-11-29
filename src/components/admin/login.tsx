@@ -28,19 +28,23 @@ export default function Login() {
 		};
 
 		try {
+			console.log({
+				method: "POST",
+				body: JSON.stringify(payload),
+			});
 			const response = await fetch(`${ENDPOINT}/login`, {
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
 				body: JSON.stringify(payload),
 			});
 
-			if (response.ok) {
-				console.log("Logged");
-				// Optionally clear the form or show a success message
+			if (response.ok && response.status === 200) {
+				console.log("Logged", response);
+				// Redirect to user dashboard
+				const data = await response.json();
+				localStorage.setItem("userId", data.userId);
+				router.push(`/admin/${username}/dashboard`);
 			} else {
-				console.error("Failed to Login");
+				alert("Failed to Login");
 			}
 		} catch (error) {
 			console.error("An error occurred while Login", error);
