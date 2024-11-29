@@ -37,7 +37,7 @@ export default function Messages() {
         {userMessages && (
           <ul className="p-4">
             {userMessages.map((msg) => (
-              <li className="mb-4">
+              <li className="mb-4" key={msg.name}>
                 <p>
                   <strong>Name:</strong> {msg.name}
                 </p>

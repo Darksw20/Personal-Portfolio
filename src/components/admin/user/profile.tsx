@@ -86,7 +86,10 @@ export default function Profile() {
         {userData !== null && userData.softSkill.length && (
           <div className="p-2">
             <ul>
-              {skillsList && skillsList.map((skill) => <li>{skill.name}</li>)}
+              {skillsList &&
+                skillsList.map((skill) => (
+                  <li key={skill.name}>{skill.name}</li>
+                ))}
             </ul>
           </div>
         )}
